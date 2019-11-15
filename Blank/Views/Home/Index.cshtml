@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+    ViewBag.Place = "Kiełczówek";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Przyjęcie sylwestrowe</title>
+</head>
+<body>
+    <div>
+        @ViewBag.Greeting, tu będzie imię
+        <p>
+            Chcielibyśmy zaprosić Ciebie wraz z osobą towarzyszącą,
+            na Nasze przyjęcie weselne,
+            które odbędzie się w miejscowości @ViewBag.Place,
+            w dniu @ViewBag.Time.
+
+            Mamy nadzieję, iż będziecie w tym dniu z Nami,
+
+            Dominika i Patryk Ś
+            <br />
+            (Do zrobienia: trzeba to ulepszyć, dodać zdjęcia i inne takie).
+        </p>
+        @Html.ActionLink("Przejdź do ankiety", "Blank")
+    </div>
+</body>
+</html>

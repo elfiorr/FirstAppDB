@@ -1,0 +1,33 @@
+﻿@model Blank.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Blank</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>Podaj swoje imię i nazwisko: @Html.TextBoxFor(x => x.Name)</p>
+        <p>Podaj adres e-mail: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Podaj numer telefonu: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>Czy przyjdziesz na przyjęcie?
+        @Html.DropDownListFor(x => x.WillAttend, new[]{
+            new SelectListItem() {Text = "Tak, przyjdę.", Value = bool.TrueString},
+            new SelectListItem() {Text = "Nie, nie przyjdę.", Value = bool.FalseString}
+           }, "Wybierz jedną opcję"
+       )
+        </p>
+        <p>@Html.CheckBox("Czy jesteś wegetarianinem/weganinem")</p>
+        <input type="submit" value="Wyślij ankiete">
+    }
+    <div> 
+    </div>
+</body>
+</html>
