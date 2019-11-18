@@ -9,25 +9,47 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Validation.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
     <title>Blank</title>
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
-        <p>Podaj swoje imię i nazwisko: @Html.TextBoxFor(x => x.Name)</p>
-        <p>Podaj adres e-mail: @Html.TextBoxFor(x => x.Email)</p>
-        <p>Podaj numer telefonu: @Html.TextBoxFor(x => x.Phone)</p>
-        <p>Czy przyjdziesz na przyjęcie?
-        @Html.DropDownListFor(x => x.WillAttend, new[]{
-            new SelectListItem() {Text = "Tak, przyjdę.", Value = bool.TrueString},
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>ANKIETA</h4></div>
+        <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Podaj swoje imię i nazwisko: </label>
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control"})
+            </div>
+            <div class="form-group">
+                <label>Podaj adres e-mail:</label>
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Podaj numer telefonu: </label>
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label>Czy przyjdziesz na przyjęcie?</label>
+                @Html.DropDownListFor(x => x.WillAttend, new[]{
+                    new SelectListItem() {Text = "Tak, przyjdę.", Value = bool.TrueString},
             new SelectListItem() {Text = "Nie, nie przyjdę.", Value = bool.FalseString}
-           }, "Wybierz jedną opcję"
-       )
-        </p>
-        <p>@Html.CheckBox("Czy jesteś wegetarianinem/weganinem")</p>
-        <input type="submit" value="Wyślij ankiete">
-    }
-    <div> 
-    </div>
+            }, "Wybierz jedną opcję", new { @class = "form-control" }
+            )
+            </div>
+            <div class="form-group">
+                <label>Czy jesteś wegetarianinem/weganinem?</label>
+                @Html.CheckBoxFor(x => x.BeVegetarianOrNot)
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Wyślij">
+            </div>
+        }
+        <div>
+        </div>
 </body>
 </html>

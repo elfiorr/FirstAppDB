@@ -6,24 +6,35 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Przyjęcie sylwestrowe</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet">
+    <title>Przyjęcie weselne</title>
+    <style>
+        #main-container {
+            width: 1000px !important;
+            margin: 0 auto;
+            overflow: hidden;
+            height: auto;
+        }
+        </style>
 </head>
 <body>
-    <div>
-        @ViewBag.Greeting, tu będzie imię
-        <p>
+    <div class="text-center panel-body btn btn-lg btn-block" id="main-container">
+        @ViewBag.Greeting,
+        <div class="form-group">
             Chcielibyśmy zaprosić Ciebie wraz z osobą towarzyszącą,
             na Nasze przyjęcie weselne,
             które odbędzie się w miejscowości @ViewBag.Place,
             w dniu @ViewBag.Time.
 
             Mamy nadzieję, iż będziecie w tym dniu z Nami,
-
-            Dominika i Patryk Ś
             <br />
-            (Do zrobienia: trzeba to ulepszyć, dodać zdjęcia i inne takie).
-        </p>
-        @Html.ActionLink("Przejdź do ankiety", "Blank")
+            Dominika i Patryk Ś
+        </div>
+        <div class="btn-group" align="center">
+            <input type="button" value="Przejdź do ankiety" class="btn btn-lg btn-block" onclick="window.location = '/home/Blank';">
+            <input type="button" value="Nie przyjdę" class="btn btn-lg btn-block" onclick="window.location = '/home/Contact';">
+        </div>
     </div>
 </body>
 </html>
